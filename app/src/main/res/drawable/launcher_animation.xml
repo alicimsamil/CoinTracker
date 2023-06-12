@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:oneshot="false">
+    <item android:drawable="@drawable/splash_one" android:duration="100" />
+    <item android:drawable="@drawable/splash_two" android:duration="100" />
+    <item android:drawable="@drawable/splash_three" android:duration="100" />
+    <item android:drawable="@drawable/splash_four" android:duration="100" />
+    <item android:drawable="@drawable/splash_five" android:duration="100" />
+    <item android:drawable="@drawable/splash_six" android:duration="100" />
+    <item android:drawable="@drawable/splash_seven" android:duration="100" />
+    <item android:drawable="@drawable/splash_eight" android:duration="100" />
+    <item android:drawable="@drawable/splash_nine" android:duration="100" />
+    <item android:drawable="@drawable/splash_ten" android:duration="100" />
+    <item android:drawable="@drawable/splash_eleven" android:duration="100" />
+    <item android:drawable="@drawable/splash_twelve" android:duration="100" />
+</animation-list>

@@ -17,7 +17,7 @@ object Dependencies {
 
     //Hilt
     private const val hiltLib = "com.google.dagger:hilt-android:${Versions.hiltLibraryVersion}"
-    private const val hiltCompilerKaptLib = "com.google.dagger:hilt-android-compiler:${Versions.hiltLibraryVersion}"
+    const val hiltCompilerKaptLib = "com.google.dagger:hilt-android-compiler:${Versions.hiltLibraryVersion}"
 
     //Coroutines
     private const val coroutinesLib = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutinesVersion}"
@@ -56,30 +56,6 @@ object Dependencies {
     private const val testExtJUnitLib = "androidx.test.ext:junit:${Versions.testExtJunitVersion}"
     private const val testEspressoCoreLib = "androidx.test.espresso:espresso-core:${Versions.testEspressoVersion}"
 
-    val appLibraries = arrayListOf<String>().apply {
-        add(coreKtxLib)
-        add(appCompatLib)
-        add(constraintLayoutLib)
-        add(materialLib)
-        add(retrofitLib)
-        add(retrofitConverterLib)
-        add(viewModelLib)
-        add(activityLib)
-        add(navigationUiLib)
-        add(navigationFragmentLib)
-        add(coroutinesLib)
-        add(hiltLib)
-        add(roomLib)
-        add(roomKtxLib)
-        add(roomPagingLib)
-        add(pagingLib)
-        add(pagingRuntimeLib)
-        add(okHttpLib)
-        add(okHttpInterceptorLib)
-        add(splashScreenLib)
-        add(glideLib)
-    }
-
     val testLibraries = arrayListOf<String>().apply {
         add(testJUnitLib)
         add(coroutinesTestLib)
@@ -105,5 +81,19 @@ object Dependencies {
 
     val annotationLibraries = arrayListOf<String>().apply {
         add(roomCompilerLib)
+    }
+
+    val appModuleLibraries = arrayListOf<String>().apply {
+        add(coreKtxLib)
+        add(appCompatLib)
+        add(constraintLayoutLib)
+        add(materialLib)
+        add(viewModelLib)
+        add(activityLib)
+        add(navigationUiLib)
+        add(navigationFragmentLib)
+        add(coroutinesLib)
+        add(hiltLib)
+        add(splashScreenLib)
     }
 }

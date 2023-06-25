@@ -91,13 +91,9 @@ android {
 }
 
 dependencies {
-    implementation(Dependencies.appLibraries)
+    implementation(Dependencies.appModuleLibraries)
     testImplementation(Dependencies.testLibraries)
-    androidTestImplementation(Dependencies.androidTestLibraries)
-    debugImplementation(Dependencies.debugLibraries)
-    kapt(Dependencies.kaptLibraries)
-    releaseImplementation (Dependencies.releaseLibraries)
-    annotationProcessor(Dependencies.annotationLibraries)
+    kapt(Dependencies.hiltCompilerKaptLib)
 }
 
 kapt {

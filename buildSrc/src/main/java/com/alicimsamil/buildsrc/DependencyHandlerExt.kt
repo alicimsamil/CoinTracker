@@ -62,3 +62,12 @@ fun DependencyHandler.kapt(list: List<String>) {
         add("kapt", dependency)
     }
 }
+
+/**
+ * This function sequentially adds the dependencies we want to appear in other modules..
+ */
+fun DependencyHandler.api(list: List<String>?) {
+    list?.forEach { dependency ->
+        add("api", dependency)
+    }
+}

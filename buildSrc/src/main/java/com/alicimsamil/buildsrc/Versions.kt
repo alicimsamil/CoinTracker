@@ -27,4 +27,5 @@ object Versions {
     const val chuckerVersion = "3.5.2"
     const val splashScreenVersion = "1.0.1"
     const val glideVersion = "4.15.1"
+    const val serialization = "1.5.1"
 }

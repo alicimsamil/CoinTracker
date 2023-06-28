@@ -11,6 +11,9 @@ object Dependencies {
     private const val viewModelLib = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.viewModelVersion}"
     private const val activityLib = "androidx.activity:activity-ktx:${Versions.activityVersion}"
 
+    //Kotlin
+    private const val serializationLib = "org.jetbrains.kotlinx:kotlinx-serialization-json:${Versions.serialization}"
+
     //Navigation
     private const val navigationFragmentLib = "androidx.navigation:navigation-fragment-ktx:${Versions.navVersion}"
     private const val navigationUiLib = "androidx.navigation:navigation-ui-ktx:${Versions.navVersion}"
@@ -20,7 +23,7 @@ object Dependencies {
     const val hiltCompilerKaptLib = "com.google.dagger:hilt-android-compiler:${Versions.hiltLibraryVersion}"
 
     //Coroutines
-    private const val coroutinesLib = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutinesVersion}"
+    const val coroutinesLib = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutinesVersion}"
     private const val coroutinesTestLib = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutinesVersion}"
 
     //Room
@@ -42,8 +45,8 @@ object Dependencies {
     private const val okHttpInterceptorLib = "com.squareup.okhttp3:logging-interceptor:${Versions.okHttpVersion}"
 
     //Chucker
-    private const val chuckerLib = "com.github.chuckerteam.chucker:library:${Versions.chuckerVersion}"
-    private const val chuckerReleaseLib = "com.github.chuckerteam.chucker:library-no-op:${Versions.chuckerVersion}"
+    const val chuckerLib = "com.github.chuckerteam.chucker:library:${Versions.chuckerVersion}"
+    const val chuckerReleaseLib = "com.github.chuckerteam.chucker:library-no-op:${Versions.chuckerVersion}"
 
     //Splash Screen
     private const val splashScreenLib = "androidx.core:core-splashscreen:${Versions.splashScreenVersion}"
@@ -52,7 +55,7 @@ object Dependencies {
     private const val glideLib ="com.github.bumptech.glide:glide:${Versions.glideVersion}"
 
     //test
-    private const val testJUnitLib = "junit:junit:${Versions.testJunitVersion}"
+    const val testJUnitLib = "junit:junit:${Versions.testJunitVersion}"
     private const val testExtJUnitLib = "androidx.test.ext:junit:${Versions.testExtJunitVersion}"
     private const val testEspressoCoreLib = "androidx.test.espresso:espresso-core:${Versions.testEspressoVersion}"
 
@@ -64,14 +67,6 @@ object Dependencies {
     val androidTestLibraries = arrayListOf<String>().apply {
         add(testExtJUnitLib)
         add(testEspressoCoreLib)
-    }
-
-    val debugLibraries = arrayListOf<String>().apply {
-        add(chuckerLib)
-    }
-
-    val releaseLibraries = arrayListOf<String>().apply {
-        add(chuckerReleaseLib)
     }
 
     val kaptLibraries = arrayListOf<String>().apply {
@@ -96,4 +91,15 @@ object Dependencies {
         add(hiltLib)
         add(splashScreenLib)
     }
+
+    val networkModuleLibraries = arrayListOf<String>().apply {
+        add(okHttpLib)
+        add(okHttpInterceptorLib)
+        add(retrofitLib)
+        add(retrofitConverterLib)
+        add(coroutinesLib)
+        add(hiltLib)
+        add(serializationLib)
+    }
+
 }

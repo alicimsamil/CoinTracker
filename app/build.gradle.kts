@@ -2,8 +2,8 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("androidx.navigation.safeargs.kotlin")
-    kotlin("kapt")
     id("com.google.dagger.hilt.android")
+    kotlin("kapt")
 }
 
 android {
@@ -36,11 +36,6 @@ android {
                 "DATABASE_VERSION_CODE",
                 "1"
             )
-            buildConfigField(
-                "String",
-                "SERVICE_URL",
-                "\"https://api.coingecko.com/api/v3\""
-            )
         }
 
         create("prod"){
@@ -56,11 +51,6 @@ android {
                 "int",
                 "DATABASE_VERSION_CODE",
                 "1"
-            )
-            buildConfigField(
-                "String",
-                "SERVICE_URL",
-                "\"https://api.coingecko.com/api/v3\""
             )
         }
     }
@@ -81,12 +71,12 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
+        sourceCompatibility = Configs.javaVersion
+        targetCompatibility = Configs.javaVersion
     }
 
     kotlinOptions {
-        jvmTarget = "17"
+        jvmTarget = Configs.jvmTarget
     }
 }
 

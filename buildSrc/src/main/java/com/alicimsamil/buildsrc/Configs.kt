@@ -24,7 +24,8 @@ object Configs {
     // :core:network
     const val networkNamespace = "com.alicimsamil.cointracker.core.network"
 
-    // :core:testing
-    const val testingNamespace = "com.alicimsamil.cointracker.core.testing"
+    // :core:database
+    const val databaseNamespace = "com.alicimsamil.cointracker.core.database"
+    const val databaseTestInstrumentationRunner = "com.alicimsamil.cointracker.core.database.runner.CoinTrackerTestRunner"
 
 }

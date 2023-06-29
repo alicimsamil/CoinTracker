@@ -19,42 +19,6 @@ android {
         testInstrumentationRunner = Configs.testInstrumentationRunner
     }
 
-    flavorDimensions.add("version")
-
-    productFlavors {
-        create("qa"){
-            dimension = "version"
-            manifestPlaceholders["appName"] = Configs.testAppName
-            applicationId = Configs.qaApplicationId
-            buildConfigField(
-                "String",
-                "DATABASE_NAME",
-                "\"COIN_TRACKER_DB_QA\""
-            )
-            buildConfigField(
-                "int",
-                "DATABASE_VERSION_CODE",
-                "1"
-            )
-        }
-
-        create("prod"){
-            dimension = "version"
-            manifestPlaceholders["appName"] = Configs.prodAppName
-            applicationId = Configs.applicationId
-            buildConfigField(
-                "String",
-                "DATABASE_NAME",
-                "\"COIN_TRACKER_DB\""
-            )
-            buildConfigField(
-                "int",
-                "DATABASE_VERSION_CODE",
-                "1"
-            )
-        }
-    }
-
     buildTypes {
         getByName("release") {
             isMinifyEnabled = false

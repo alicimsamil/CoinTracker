@@ -21,15 +21,16 @@ object Dependencies {
     //Hilt
     private const val hiltLib = "com.google.dagger:hilt-android:${Versions.hiltLibraryVersion}"
     const val hiltCompilerKaptLib = "com.google.dagger:hilt-android-compiler:${Versions.hiltLibraryVersion}"
+    const val hiltTestingLib = "com.google.dagger:hilt-android-testing:${Versions.hiltLibraryVersion}"
 
     //Coroutines
     const val coroutinesLib = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutinesVersion}"
-    private const val coroutinesTestLib = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutinesVersion}"
+    const val coroutinesTestLib = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutinesVersion}"
 
     //Room
     private const val roomLib= "androidx.room:room-runtime:${Versions.roomVersion}"
     private const val roomKtxLib= "androidx.room:room-ktx:${Versions.roomVersion}"
-    private const val roomCompilerLib= "androidx.room:room-compiler:${Versions.roomVersion}"
+    const val roomCompilerLib= "androidx.room:room-compiler:${Versions.roomVersion}"
     private const val roomPagingLib = "androidx.room:room-paging:${Versions.roomVersion}"
 
     //Paging
@@ -67,6 +68,7 @@ object Dependencies {
     val androidTestLibraries = arrayListOf<String>().apply {
         add(testExtJUnitLib)
         add(testEspressoCoreLib)
+        add(hiltTestingLib)
     }
 
     val kaptLibraries = arrayListOf<String>().apply {
@@ -97,6 +99,15 @@ object Dependencies {
         add(okHttpInterceptorLib)
         add(retrofitLib)
         add(retrofitConverterLib)
+        add(coroutinesLib)
+        add(hiltLib)
+        add(serializationLib)
+    }
+
+    val databaseModuleLibraries = arrayListOf<String>().apply {
+        add(roomLib)
+        add(roomKtxLib)
+        add(roomPagingLib)
         add(coroutinesLib)
         add(hiltLib)
         add(serializationLib)

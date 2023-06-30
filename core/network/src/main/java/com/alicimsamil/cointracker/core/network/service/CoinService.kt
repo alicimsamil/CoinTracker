@@ -19,7 +19,7 @@ interface CoinService {
         @Query("per_page") per_page: Int = 20,
         @Query("page") page: Int = 1,
         @Query("sparkline") includeSparkline: Boolean = true,
-        @Query("price_change_percentage") changePercentage: String = "24h"
+        @Query("price_change_percentage") changePercentage: String = "7d"
     ) : Response<CoinMarketData>
 
     @GET("/coins/list")

@@ -2,40 +2,20 @@ plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
     id("com.google.dagger.hilt.android")
+    id("com.google.gms.google-services")
     kotlin("kapt")
 }
 
 android {
-    namespace = Configs.networkNamespace
+    namespace = Configs.firebaseNamespace
     compileSdk = Configs.compileSdkVersion
 
     defaultConfig {
         minSdk = Configs.minSdkVersion
         targetSdk = Configs.targetSdkVersion
+
         testInstrumentationRunner = Configs.testInstrumentationRunner
         consumerProguardFiles("consumer-rules.pro")
-    }
-
-    flavorDimensions.add("version")
-
-    productFlavors {
-        create("qa"){
-            dimension = "version"
-            buildConfigField(
-                "String",
-                "SERVICE_URL",
-                "\"https://api.coingecko.com/api/v3\""
-            )
-        }
-
-        create("prod"){
-            dimension = "version"
-            buildConfigField(
-                "String",
-                "SERVICE_URL",
-                "\"https://api.coingecko.com/api/v3\""
-            )
-        }
     }
 
     buildTypes {
@@ -44,26 +24,18 @@ android {
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
-
     compileOptions {
         sourceCompatibility = Configs.javaVersion
         targetCompatibility = Configs.javaVersion
     }
-
-    buildFeatures {
-        buildConfig = true
-    }
-
     kotlinOptions {
         jvmTarget = Configs.jvmTarget
     }
 }
 
 dependencies {
-    debugImplementation(Dependencies.chuckerLib)
-    releaseImplementation(Dependencies.chuckerReleaseLib)
-    implementation(Dependencies.networkModuleLibraries)
+    implementation(Dependencies.firebaseModuleLibraries)
     kapt(Dependencies.hiltCompilerKaptLib)
+    implementation(platform(Dependencies.firebaseBom))
     implementation(project(":core:common"))
-    testImplementation(Dependencies.testLibraries)
 }

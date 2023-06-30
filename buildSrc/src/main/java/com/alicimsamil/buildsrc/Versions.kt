@@ -6,6 +6,7 @@ object Versions {
     const val androidApplicationPathVersion = "8.0.1"
     const val androidLibraryPathVersion = "8.0.1"
     const val hiltLibraryVersion = "2.44"
+    const val firebasePathVersion = "4.3.15"
 
     //Dependencies
     const val kotlinGradleVersion = "1.8.20"
@@ -27,5 +28,6 @@ object Versions {
     const val chuckerVersion = "3.5.2"
     const val splashScreenVersion = "1.0.1"
     const val glideVersion = "4.15.1"
-    const val serialization = "1.5.1"
+    const val serializationVersion = "1.5.1"
+    const val firebaseVersion = "32.1.1"
 }

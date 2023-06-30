@@ -8,4 +8,5 @@ object ClassPaths {
     const val androidApplicationPath = "com.android.application"
     const val navigationPath = "androidx.navigation.safeargs"
     const val hiltPath = "com.google.dagger.hilt.android"
+    const val firebasePath = "com.google.gms.google-services"
 }

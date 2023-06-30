@@ -6,4 +6,5 @@ plugins {
     id (ClassPaths.kotlinGradlePath)       version Versions.kotlinGradleVersion           apply false
     id (ClassPaths.navigationPath)         version Versions.navVersion                    apply false
     id (ClassPaths.hiltPath)               version Versions.hiltLibraryVersion            apply false
+    id (ClassPaths.firebasePath)           version Versions.firebasePathVersion           apply false
 }

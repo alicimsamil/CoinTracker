@@ -28,4 +28,7 @@ object Configs {
     const val databaseNamespace = "com.alicimsamil.cointracker.core.database"
     const val databaseTestInstrumentationRunner = "com.alicimsamil.cointracker.core.database.runner.CoinTrackerTestRunner"
 
+    // :core:firebase
+    const val firebaseNamespace = "com.alicimsamil.cointracker.core.firebase"
+
 }

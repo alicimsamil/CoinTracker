@@ -12,7 +12,7 @@ object Dependencies {
     private const val activityLib = "androidx.activity:activity-ktx:${Versions.activityVersion}"
 
     //Kotlin
-    private const val serializationLib = "org.jetbrains.kotlinx:kotlinx-serialization-json:${Versions.serialization}"
+    private const val serializationLib = "org.jetbrains.kotlinx:kotlinx-serialization-json:${Versions.serializationVersion}"
 
     //Navigation
     private const val navigationFragmentLib = "androidx.navigation:navigation-fragment-ktx:${Versions.navVersion}"
@@ -54,6 +54,12 @@ object Dependencies {
 
     //Glide
     private const val glideLib ="com.github.bumptech.glide:glide:${Versions.glideVersion}"
+
+    //Firebase
+    const val firebaseBom = "com.google.firebase:firebase-bom:${Versions.firebaseVersion}"
+    private const val firebaseAnalytcsLib = "com.google.firebase:firebase-analytics-ktx"
+    private const val firebaseAuthLib = "com.google.firebase:firebase-auth-ktx"
+    private const val firebaseFirestoreLib = "com.google.firebase:firebase-firestore-ktx"
 
     //test
     const val testJUnitLib = "junit:junit:${Versions.testJunitVersion}"
@@ -110,7 +116,14 @@ object Dependencies {
         add(roomPagingLib)
         add(coroutinesLib)
         add(hiltLib)
-        add(serializationLib)
+    }
+
+    val firebaseModuleLibraries = arrayListOf<String>().apply {
+        add(coroutinesLib)
+        add(hiltLib)
+        add(firebaseAnalytcsLib)
+        add(firebaseAuthLib)
+        add(firebaseFirestoreLib)
     }
 
 }

@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "1016191800363",
+    "project_id": "cointracker-ee89a",
+    "storage_bucket": "cointracker-ee89a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1016191800363:android:08fa17aaf07cb959c8466e",
+        "android_client_info": {
+          "package_name": "com.alicimsamil.cointracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1016191800363-bm1o5noilio42c08aaq88b0c61fcj608.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDUWlBWjCOSI3qlUEWdw9ubjDraoV30JFM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1016191800363-bm1o5noilio42c08aaq88b0c61fcj608.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1016191800363:android:f187978cfb5b73e1c8466e",
+        "android_client_info": {
+          "package_name": "com.alicimsamil.cointracker.core.firebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1016191800363-bm1o5noilio42c08aaq88b0c61fcj608.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDUWlBWjCOSI3qlUEWdw9ubjDraoV30JFM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1016191800363-bm1o5noilio42c08aaq88b0c61fcj608.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

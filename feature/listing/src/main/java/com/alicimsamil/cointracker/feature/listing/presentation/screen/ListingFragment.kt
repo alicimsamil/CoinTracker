@@ -4,6 +4,8 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import com.alicimsamil.cointracker.core.common.extension.invisible
+import com.alicimsamil.cointracker.core.common.extension.visible
 import com.alicimsamil.cointracker.core.ui.base.BaseFragment
 import com.alicimsamil.cointracker.feature.listing.databinding.FragmentListingBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -19,7 +21,7 @@ class ListingFragment : BaseFragment<FragmentListingBinding, ListingViewModel>(F
 
     override fun initialize() {
         super.initialize()
-        viewModel.getPagingData()
+        viewModel.onEvent(ListingEvents.GetPagingData)
         setRecyclerAdapter()
         observeUiState()
     }
@@ -32,7 +34,10 @@ class ListingFragment : BaseFragment<FragmentListingBinding, ListingViewModel>(F
                     handleFailure()
                     handleLoading()
                     state.pagingData?.collectLatest { data ->
+                        binding.emptyLayout.root.invisible()
                         pagingAdapter.submitData(data)
+                    } ?: run {
+                        binding.emptyLayout.root.visible()
                     }
                 }
             }

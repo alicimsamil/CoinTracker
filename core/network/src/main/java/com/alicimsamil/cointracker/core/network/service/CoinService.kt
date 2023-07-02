@@ -1,10 +1,9 @@
 package com.alicimsamil.cointracker.core.network.service
 
 import com.alicimsamil.cointracker.core.network.model.CoinDetailModel
+import com.alicimsamil.cointracker.core.network.model.CoinItem
 import com.alicimsamil.cointracker.core.network.model.CoinMarketData
-import com.alicimsamil.cointracker.core.network.model.Coins
 import com.alicimsamil.cointracker.core.network.model.MarketChartData
-import com.alicimsamil.cointracker.core.network.model.TrendCoins
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -23,7 +22,7 @@ interface CoinService {
     ) : Response<List<CoinMarketData>>
 
     @GET("coins/list")
-    suspend fun getAllCoins() : Response<Coins>
+    suspend fun getAllCoins() : Response<List<CoinItem>?>
 
     @GET("coins/{coin}")
     suspend fun getCoinDetails(
@@ -43,8 +42,5 @@ interface CoinService {
         @Query("days") days: Int = 30,
         @Query("interval") interval: String = "daily"
     ) : Response<MarketChartData>
-
-    @GET("search/trending")
-    suspend fun getTrendCoins() : Response<TrendCoins>
 
 }

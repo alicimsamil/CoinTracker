@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.alicimsamil.cointracker.core.common.extension.loadUrl
 import com.alicimsamil.cointracker.core.common.extension.setTextColor
-import com.alicimsamil.cointracker.feature.listing.R
+import com.alicimsamil.cointracker.core.ui.R
 import com.alicimsamil.cointracker.feature.listing.databinding.ItemListingBinding
 import com.alicimsamil.cointracker.feature.listing.presentation.custom.LineColor
 

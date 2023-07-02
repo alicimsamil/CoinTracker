@@ -11,11 +11,11 @@ import com.alicimsamil.cointracker.core.database.model.TableConstants.TABLE_NAME
 @Dao
 interface CoinDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun addCoin(trackModels: List<CoinDBModel>)
+    suspend fun addCoin(coins: List<CoinDBModel>)
 
-    @Query("SELECT * FROM $TABLE_NAME")
-    fun getAllCoins(): PagingSource<Int,CoinDBModel>
+    @Query("SELECT * FROM $TABLE_NAME WHERE name LIKE  '%' || :keyword || '%' OR symbol LIKE '%' || :keyword || '%'")
+    fun getCoinsBySearch(keyword: String?): PagingSource<Int, CoinDBModel>
 
-    @Query("SELECT COUNT(id) FROM $TABLE_NAME")
+    @Query("SELECT COUNT(coinId) FROM $TABLE_NAME")
     fun getRowCount(): Int
 }

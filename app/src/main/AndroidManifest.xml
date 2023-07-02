@@ -16,7 +16,7 @@
         android:theme="@style/Theme.CoinTracker.Splash"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".presentation.MainActivity"
             android:theme="@style/Theme.CoinTracker"
             android:exported="true">
             <intent-filter>

@@ -26,12 +26,11 @@ class GetCoinsFromRemoteUseCase @Inject constructor(private val repository: Coin
     /***
      * This function gets 4h data from 7 day data. Cause this data shows in small site.
      */
-    private fun get4hBy7DayData(prices: List<Double>?): List<Double> {
+    fun get4hBy7DayData(prices: List<Double>?): List<Double> {
         val newList = mutableListOf<Double>()
-        prices?.forEachIndexed { index, data ->
-            if (index % 6 == 0) {
-                newList.add(data)
-            }
+        if (prices != null) {
+            for (i in prices.indices step 4)
+                newList.add(prices[i])
         }
         return newList
     }

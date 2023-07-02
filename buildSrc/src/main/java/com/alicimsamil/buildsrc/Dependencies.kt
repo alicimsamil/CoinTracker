@@ -92,6 +92,7 @@ object Dependencies {
         add(coroutinesLib)
         add(hiltLib)
         add(splashScreenLib)
+        add(retrofitLib)
     }
 
     val networkModuleLibraries = arrayListOf<String>().apply {
@@ -141,6 +142,13 @@ object Dependencies {
         add(pagingLib)
         add(pagingRuntimeLib)
         add(retrofitLib)
+    }
+
+    val searchModuleLibraries = arrayListOf<String>().apply {
+        add(coroutinesLib)
+        add(hiltLib)
+        add(pagingLib)
+        add(pagingRuntimeLib)
     }
 
 }

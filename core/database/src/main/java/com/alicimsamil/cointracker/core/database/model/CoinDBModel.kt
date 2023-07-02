@@ -7,15 +7,13 @@ import com.alicimsamil.cointracker.core.database.model.TableConstants.TABLE_NAME
 
 @Entity(tableName = TABLE_NAME)
 data class CoinDBModel(
+    @PrimaryKey(autoGenerate = false)
     @ColumnInfo(name = "coinId")
-    val coinId: String?,
+    val coinId: String,
     @ColumnInfo(name = "name")
     val name: String?,
     @ColumnInfo(name = "symbol")
-    val symbol: String?,
-    @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "id")
-    val id: Int? = null
+    val symbol: String?
 )
 
 

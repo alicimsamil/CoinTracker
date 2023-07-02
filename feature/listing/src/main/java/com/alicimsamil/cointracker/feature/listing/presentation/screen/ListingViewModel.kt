@@ -19,7 +19,7 @@ class ListingViewModel @Inject constructor(private val getCoinsFromRemoteUseCase
     var state = MutableStateFlow(ListingUiState())
         private set
 
-    fun getPagingData() {
+    private fun getPagingData() {
         state.value = state.value.copy(
             pagingData = getCoinsFromRemoteUseCase.invoke().cachedIn(viewModelScope)
         )
@@ -27,9 +27,17 @@ class ListingViewModel @Inject constructor(private val getCoinsFromRemoteUseCase
 
 
     override fun onEvent(event: UiEvent) {
-
+        when (event) {
+            is ListingEvents.GetPagingData -> {
+                getPagingData()
+            }
+        }
     }
 
+}
+
+sealed class ListingEvents : UiEvent {
+    object GetPagingData : ListingEvents()
 }
 
 data class ListingUiState(

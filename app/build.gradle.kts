@@ -65,7 +65,11 @@ dependencies {
     testImplementation(Dependencies.testLibraries)
     kapt(Dependencies.hiltCompilerKaptLib)
     implementation(project(":core:ui"))
+    implementation(project(":core:common"))
+    implementation(project(":core:network"))
+    implementation(project(":core:database"))
     implementation(project(":feature:listing"))
+    implementation(project(":feature:search"))
 }
 
 kapt {

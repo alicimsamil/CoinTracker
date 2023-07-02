@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.screen.ListingFragment">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvListingTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_big_small"
+        android:layout_marginTop="@dimen/space_big_small"
+        android:text="@string/title"
+        android:textColor="@color/black"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvListing"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="@dimen/space_medium_small"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/space_medium"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvListingTitle"
+        tools:listitem="@layout/item_listing" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

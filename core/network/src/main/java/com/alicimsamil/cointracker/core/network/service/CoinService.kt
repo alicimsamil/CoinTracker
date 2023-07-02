@@ -12,7 +12,7 @@ import retrofit2.http.Query
 
 interface CoinService {
 
-    @GET("/coins/markets")
+    @GET("coins/markets")
     suspend fun getPagedCoins(
         @Query("vs_currency") exchangeCurrency: String = "usd",
         @Query("order") order: String = "market_cap_desc",
@@ -20,12 +20,12 @@ interface CoinService {
         @Query("page") page: Int = 1,
         @Query("sparkline") includeSparkline: Boolean = true,
         @Query("price_change_percentage") changePercentage: String = "7d"
-    ) : Response<CoinMarketData>
+    ) : Response<List<CoinMarketData>>
 
-    @GET("/coins/list")
+    @GET("coins/list")
     suspend fun getAllCoins() : Response<Coins>
 
-    @GET("/coins/{coin}")
+    @GET("coins/{coin}")
     suspend fun getCoinDetails(
         @Path("coin") coinId: String,
         @Query("localization") localization: Boolean = false,
@@ -36,7 +36,7 @@ interface CoinService {
         @Query("sparkline") sparkline: Boolean = false
     ) : Response<CoinDetailModel>
 
-    @GET("/coins/{coin}/market_chart")
+    @GET("coins/{coin}/market_chart")
     suspend fun getCoinMarketChartInfo(
         @Path("coin") coinId: String,
         @Query("vs_currency") vsCurrency: String = "usd",
@@ -44,7 +44,7 @@ interface CoinService {
         @Query("interval") interval: String = "daily"
     ) : Response<MarketChartData>
 
-    @GET("/search/trending")
+    @GET("search/trending")
     suspend fun getTrendCoins() : Response<TrendCoins>
 
 }

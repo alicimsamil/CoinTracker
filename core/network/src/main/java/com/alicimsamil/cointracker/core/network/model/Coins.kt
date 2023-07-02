@@ -1,14 +1,14 @@
 package com.alicimsamil.cointracker.core.network.model
 
-import kotlinx.serialization.SerialName
+import com.google.gson.annotations.SerializedName
 
 data class Coins(val coins: List<CoinItem>? = null)
 
 data class CoinItem(
-    @SerialName("id")
+    @SerializedName("id")
     val id: String?,
-    @SerialName("name")
+    @SerializedName("name")
     val name: String?,
-    @SerialName("symbol")
+    @SerializedName("symbol")
     val symbol: String?
 )

@@ -30,5 +30,6 @@ android {
 }
 
 dependencies {
+    implementation(Dependencies.commonModuleLibraries)
     testImplementation(Dependencies.testJUnitLib)
 }

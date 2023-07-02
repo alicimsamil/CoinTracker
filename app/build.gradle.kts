@@ -19,6 +19,22 @@ android {
         testInstrumentationRunner = Configs.testInstrumentationRunner
     }
 
+    flavorDimensions.add("version")
+
+    productFlavors {
+        create("qa"){
+            dimension = "version"
+            manifestPlaceholders["appName"] = Configs.testAppName
+            applicationId = Configs.qaApplicationId
+        }
+
+        create("prod"){
+            dimension = "version"
+            manifestPlaceholders["appName"] = Configs.prodAppName
+            applicationId = Configs.applicationId
+        }
+    }
+
     buildTypes {
         getByName("release") {
             isMinifyEnabled = false
@@ -48,6 +64,8 @@ dependencies {
     implementation(Dependencies.appModuleLibraries)
     testImplementation(Dependencies.testLibraries)
     kapt(Dependencies.hiltCompilerKaptLib)
+    implementation(project(":core:ui"))
+    implementation(project(":feature:listing"))
 }
 
 kapt {

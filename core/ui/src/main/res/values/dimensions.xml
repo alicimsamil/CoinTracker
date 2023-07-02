@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    //Text Dimensions
+    <dimen name="text_size_very_big">48sp</dimen>
+    <dimen name="text_size_big">34sp</dimen>
+    <dimen name="text_size_big_small">24sp</dimen>
+    <dimen name="text_size_medium">20sp</dimen>
+    <dimen name="text_size_medium_small">16sp</dimen>
+    <dimen name="text_size_small">14sp</dimen>
+    <dimen name="text_size_extra_small">12sp</dimen>
+
+    //Spacing
+    <dimen name="space_huge">150dp</dimen>
+    <dimen name="space_very_big">90dp</dimen>
+    <dimen name="space_big">40dp</dimen>
+    <dimen name="space_big_small">32dp</dimen>
+    <dimen name="space_medium">24dp</dimen>
+    <dimen name="space_medium_medium">20dp</dimen>
+    <dimen name="space_medium_small">16dp</dimen>
+    <dimen name="space_small_big">12dp</dimen>
+    <dimen name="space_small">10dp</dimen>
+    <dimen name="space_small_small">8dp</dimen>
+    <dimen name="space_extra_small">5dp</dimen>
+
+    //Size
+    <dimen name="size_huge_huge">200dp</dimen>
+    <dimen name="size_huge">120dp</dimen>
+    <dimen name="size_big">50dp</dimen>
+</resources>

@@ -1,14 +1,14 @@
 package com.alicimsamil.cointracker.core.network.model
 
 
-import kotlinx.serialization.SerialName
+import com.google.gson.annotations.SerializedName
 
 data class MarketChartData(
-    @SerialName("market_caps")
+    @SerializedName("market_caps")
     val marketCaps: List<List<Double?>?>?,
-    @SerialName("prices")
+    @SerializedName("prices")
     val prices: List<List<Double?>?>?,
-    @SerialName("total_volumes")
+    @SerializedName("total_volumes")
     val totalVolumes: List<List<Double?>?>?
 )
 

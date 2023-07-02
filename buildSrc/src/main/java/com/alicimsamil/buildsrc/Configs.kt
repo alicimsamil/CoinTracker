@@ -31,4 +31,7 @@ object Configs {
     // :core:firebase
     const val firebaseNamespace = "com.alicimsamil.cointracker.core.firebase"
 
+    //:feature:listing
+    const val listingNamespace = "com.alicimsamil.cointracker.feature.listing"
+
 }

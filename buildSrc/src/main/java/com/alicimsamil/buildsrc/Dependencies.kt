@@ -54,6 +54,7 @@ object Dependencies {
 
     //Glide
     private const val glideLib ="com.github.bumptech.glide:glide:${Versions.glideVersion}"
+    private const val swipeToRefreshLib =  "androidx.swiperefreshlayout:swiperefreshlayout:${Versions.swipeToRefreshVersion}"
 
     //Firebase
     const val firebaseBom = "com.google.firebase:firebase-bom:${Versions.firebaseVersion}"
@@ -87,14 +88,7 @@ object Dependencies {
     }
 
     val appModuleLibraries = arrayListOf<String>().apply {
-        add(coreKtxLib)
-        add(appCompatLib)
-        add(constraintLayoutLib)
-        add(materialLib)
-        add(viewModelLib)
         add(activityLib)
-        add(navigationUiLib)
-        add(navigationFragmentLib)
         add(coroutinesLib)
         add(hiltLib)
         add(splashScreenLib)
@@ -118,12 +112,35 @@ object Dependencies {
         add(hiltLib)
     }
 
+    val commonModuleLibraries = arrayListOf<String>().apply {
+        add(glideLib)
+        add(swipeToRefreshLib)
+    }
+
+    val uiModuleLibraries = arrayListOf<String>().apply {
+        add(coreKtxLib)
+        add(appCompatLib)
+        add(constraintLayoutLib)
+        add(materialLib)
+        add(viewModelLib)
+        add(navigationUiLib)
+        add(navigationFragmentLib)
+    }
+
     val firebaseModuleLibraries = arrayListOf<String>().apply {
         add(coroutinesLib)
         add(hiltLib)
         add(firebaseAnalytcsLib)
         add(firebaseAuthLib)
         add(firebaseFirestoreLib)
+    }
+
+    val listingModuleLibraries = arrayListOf<String>().apply {
+        add(coroutinesLib)
+        add(hiltLib)
+        add(pagingLib)
+        add(pagingRuntimeLib)
+        add(retrofitLib)
     }
 
 }

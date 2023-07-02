@@ -24,7 +24,7 @@ android {
             buildConfigField(
                 "String",
                 "SERVICE_URL",
-                "\"https://api.coingecko.com/api/v3\""
+                "\"https://api.coingecko.com/api/v3/\""
             )
         }
 
@@ -33,7 +33,7 @@ android {
             buildConfigField(
                 "String",
                 "SERVICE_URL",
-                "\"https://api.coingecko.com/api/v3\""
+                "\"https://api.coingecko.com/api/v3/\""
             )
         }
     }

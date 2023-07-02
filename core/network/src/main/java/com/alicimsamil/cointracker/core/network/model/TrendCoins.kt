@@ -1,39 +1,39 @@
 package com.alicimsamil.cointracker.core.network.model
 
 
-import kotlinx.serialization.SerialName
+import com.google.gson.annotations.SerializedName
 
 data class TrendCoins(
-    @SerialName("coins")
+    @SerializedName("coins")
     val coins: List<TrendCoin?>?
 )
 
 data class TrendCoin(
-    @SerialName("item")
+    @SerializedName("item")
     val item: TrendCoinItem?
 )
 
 data class TrendCoinItem(
-    @SerialName("coin_id")
+    @SerializedName("coin_id")
     val coinId: Int?,
-    @SerialName("id")
+    @SerializedName("id")
     val id: String?,
-    @SerialName("large")
+    @SerializedName("large")
     val large: String?,
-    @SerialName("market_cap_rank")
+    @SerializedName("market_cap_rank")
     val marketCapRank: Int?,
-    @SerialName("name")
+    @SerializedName("name")
     val name: String?,
-    @SerialName("price_btc")
+    @SerializedName("price_btc")
     val priceBtc: Double?,
-    @SerialName("score")
+    @SerializedName("score")
     val score: Int?,
-    @SerialName("slug")
+    @SerializedName("slug")
     val slug: String?,
-    @SerialName("small")
+    @SerializedName("small")
     val small: String?,
-    @SerialName("symbol")
+    @SerializedName("symbol")
     val symbol: String?,
-    @SerialName("thumb")
+    @SerializedName("thumb")
     val thumb: String?
 )

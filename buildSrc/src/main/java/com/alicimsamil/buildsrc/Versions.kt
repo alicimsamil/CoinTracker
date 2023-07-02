@@ -27,6 +27,7 @@ object Versions {
     const val okHttpVersion = "4.9.0"
     const val chuckerVersion = "3.5.2"
     const val splashScreenVersion = "1.0.1"
+    const val swipeToRefreshVersion = "1.1.0"
     const val glideVersion = "4.15.1"
     const val serializationVersion = "1.5.1"
     const val firebaseVersion = "32.1.1"

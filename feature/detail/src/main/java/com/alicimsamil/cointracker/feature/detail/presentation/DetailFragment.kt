@@ -1,11 +1,11 @@
 package com.alicimsamil.cointracker.feature.detail.presentation
 
-import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.alicimsamil.cointracker.core.common.extension.gone
 import com.alicimsamil.cointracker.core.common.extension.loadUrl
 import com.alicimsamil.cointracker.core.common.extension.setTextColor
@@ -21,11 +21,12 @@ class DetailFragment :
     BaseFragment<FragmentDetailBinding, DetailViewModel>(FragmentDetailBinding::inflate) {
     override val viewModel by viewModels<DetailViewModel>()
     override var state = DetailUiState()
+    private val nav by navArgs<DetailFragmentArgs>()
 
     override fun initialize() {
         super.initialize()
+        viewModel.onEvent(DetailEvents.GetCoinDetails(nav.id))
         initListeners()
-        viewModel.onEvent(DetailEvents.GetCoinDetails("bitcoin"))
         observeUiState()
     }
 

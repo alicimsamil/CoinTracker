@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.SignInFragment">
+
+    <EditText
+        android:id="@+id/etMail"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_medium_big"
+        android:layout_marginHorizontal="@dimen/space_medium"
+        android:layout_marginTop="@dimen/size_big"
+        android:background="@drawable/bg_edittext"
+        android:hint="@string/email"
+        android:inputType="textEmailAddress"
+        android:paddingStart="@dimen/space_extra_small"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivSignInImage" />
+
+
+    <EditText
+        android:id="@+id/etPassword"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_medium_big"
+        android:layout_marginHorizontal="@dimen/space_medium"
+        android:layout_marginTop="@dimen/space_medium"
+        android:background="@drawable/bg_edittext"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        android:paddingStart="@dimen/space_extra_small"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etMail" />
+
+    <Button
+        android:id="@+id/btnSignIn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/size_big"
+        android:layout_marginTop="@dimen/space_big"
+        android:background="@drawable/bg_blue"
+        android:text="@string/sign_in"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_medium_small"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etPassword" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivSignInImage"
+        android:layout_width="@dimen/size_huge"
+        android:layout_height="@dimen/size_huge"
+        android:layout_marginTop="@dimen/size_huge"
+        android:src="@drawable/ic_sign_in"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

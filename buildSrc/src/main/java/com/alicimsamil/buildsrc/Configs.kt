@@ -40,4 +40,7 @@ object Configs {
     //:feature:detail
     const val detailNamespace = "com.alicimsamil.cointracker.feature.detail"
 
+    //:feature:auth
+    const val authNamespace = "com.alicimsamil.cointracker.feature.auth"
+
 }

@@ -11,9 +11,9 @@
         android:label="fragment_detail"
         tools:layout="@layout/fragment_detail" >
         <deepLink
-            app:uri="android-app://com.alicimsamil.cointracker/detail_fragment" />
+            app:uri="android-app://com.alicimsamil.cointracker/detail_fragment/{id}" />
         <argument
             android:name="id"
-            app:argType="string" />
+            app:argType="string"/>
     </fragment>
 </navigation>

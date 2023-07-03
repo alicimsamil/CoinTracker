@@ -14,26 +14,27 @@ class GetCoinDetailUseCase @Inject constructor(private val repository: DetailRep
         val deferred = CompletableDeferred<DataResult<DetailModel, String>>()
         repository.getCoinDetails(id)
             .onSuccess { data ->
-
-                deferred.complete(
-                    Success(
-                        DetailModel(
-                            data?.name,
-                            "(${data?.symbol?.uppercase()})",
-                            false,
-                            data?.image?.large,
-                            "$${
-                                String.format("%.2f", data?.marketData?.currentPrice?.usd)
-                            }",
-                            "(${
-                                String.format("%.2f", data?.marketData?.priceChangePercentage24h)
-                            }%)",
-                            data?.marketData?.priceChangePercentage24h,
-                            data?.hashingAlgorithm,
-                            data?.description?.en
+                repository.getFavorites(repository.getUserId()).onSuccess { favorites->
+                    deferred.complete(
+                        Success(
+                            DetailModel(
+                                data?.name,
+                                "(${data?.symbol?.uppercase()})",
+                                favorites?.contains(data?.id),
+                                data?.image?.large,
+                                "$${
+                                    String.format("%.2f", data?.marketData?.currentPrice?.usd)
+                                }",
+                                "(${
+                                    String.format("%.2f", data?.marketData?.priceChangePercentage24h)
+                                }%)",
+                                data?.marketData?.priceChangePercentage24h,
+                                data?.hashingAlgorithm,
+                                data?.description?.en
+                            )
                         )
                     )
-                )
+                }
             }.onFailure {
                 deferred.complete(Error(it))
             }

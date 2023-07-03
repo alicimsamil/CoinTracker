@@ -43,4 +43,7 @@ object Configs {
     //:feature:auth
     const val authNamespace = "com.alicimsamil.cointracker.feature.auth"
 
+    //:feature:favorites
+    const val favoritesNamespace = "com.alicimsamil.cointracker.feature.favorites"
+
 }

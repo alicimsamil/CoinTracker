@@ -4,6 +4,7 @@ import com.alicimsamil.cointracker.core.common.result.DataResult
 import com.alicimsamil.cointracker.core.common.result.Error
 import com.alicimsamil.cointracker.core.common.result.Success
 import com.alicimsamil.cointracker.core.firebase.model.AuthModel
+import com.alicimsamil.cointracker.core.firebase.model.FavoriteModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthException
 import com.google.firebase.firestore.FieldValue
@@ -44,49 +45,88 @@ class FirebaseDataSource @Inject constructor(
         return auth.currentUser != null
     }
 
-    fun getCurrentUserId() : String?{
+    fun getCurrentUserId(): String? {
         return auth.currentUser?.uid
     }
 
-    suspend fun addFavorite(userId: String, coinId: String): DataResult<Boolean, String>{
+    suspend fun addFavorite(
+        userId: String,
+        coinId: String,
+        coinName: String?,
+        coinPrice: String?,
+        coinSymbol: String?,
+        coinImage: String?
+    ): DataResult<Boolean, String> {
         val deferred = CompletableDeferred<DataResult<Boolean, String>>()
         try {
-            firestore.collection(COLLECTION).document(userId).update(FIELD, FieldValue.arrayUnion(coinId)).await()
+            val data = hashMapOf(
+                "coinId" to coinId,
+                "coinName" to coinName,
+                "coinPrice" to coinPrice,
+                "coinSymbol" to coinSymbol,
+                "coinImage" to coinImage
+            )
+            firestore.collection(COLLECTION).document(userId).collection(COIN_COLLECTION)
+                .document(coinId).set(data).await()
             deferred.complete(Success(true))
-        } catch (exception: FirebaseFirestoreException){
+        } catch (exception: FirebaseFirestoreException) {
             deferred.complete(Error(exception.message))
         }
         return deferred.await()
     }
 
-    suspend fun removeFavorite(userId: String, coinId: String): DataResult<Boolean, String>{
+    suspend fun removeFavorite(userId: String, coinId: String): DataResult<Boolean, String> {
         val deferred = CompletableDeferred<DataResult<Boolean, String>>()
         try {
-            firestore.collection(COLLECTION).document(userId).update(FIELD, FieldValue.arrayRemove(coinId)).await()
+            firestore.collection(COLLECTION).document(userId).collection(COIN_COLLECTION)
+                .document(coinId).delete().await()
             deferred.complete(Success(true))
-        } catch (exception: FirebaseFirestoreException){
+        } catch (exception: FirebaseFirestoreException) {
             deferred.complete(Error(exception.message))
         }
         return deferred.await()
     }
 
-    suspend fun getFavorites(userId: String): DataResult<List<String>, String> {
+    suspend fun getFavoritesIds(userId: String): DataResult<List<String>, String> {
         val deferred = CompletableDeferred<DataResult<List<String>, String>>()
         try {
-            val favorites = firestore.collection(COLLECTION).document(userId).get().await()
-                .get(FIELD) as List<String>
+            val query =
+                firestore.collection(COLLECTION).document(userId).collection(COIN_COLLECTION).get()
+                    .await().documents
+            val favorites = query.map { it.id }
             deferred.complete(Success(favorites))
-        } catch (exception: FirebaseFirestoreException){
+        } catch (exception: FirebaseFirestoreException) {
             deferred.complete(Error(exception.message))
         }
         return deferred.await()
     }
 
+    suspend fun getFavorites(userId: String): DataResult<List<FavoriteModel>, String> {
+        val deferred = CompletableDeferred<DataResult<List<FavoriteModel>, String>>()
+        try {
+            val query =
+                firestore.collection(COLLECTION).document(userId).collection(COIN_COLLECTION).get()
+                    .await().documents
+            val favorites = query.map {
+                FavoriteModel(
+                    it.getString("coinId"),
+                    it.getString("coinName"),
+                    it.getString("coinPrice"),
+                    it.getString("coinSymbol"),
+                    it.getString("coinImage")
+                )
+            }
+            deferred.complete(Success(favorites))
+        } catch (exception: FirebaseFirestoreException) {
+            deferred.complete(Error(exception.message))
+        }
+        return deferred.await()
+    }
 
 
     companion object {
         const val AUTH_ERROR = "ERROR_USER_NOT_FOUND"
         const val COLLECTION = "favorites"
-        const val FIELD = "id"
+        const val COIN_COLLECTION = "coins"
     }
 }

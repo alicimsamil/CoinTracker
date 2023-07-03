@@ -10,4 +10,19 @@ interface DetailRepository {
 
     suspend fun getChartData(id: String) :  DataResult<MarketChartData, String>
 
+    suspend fun getFavorites(id: String) : DataResult<List<String>, String>
+
+    suspend fun getUserId() : String
+
+    suspend fun addFavorite(
+        userId: String,
+        coinId: String,
+        coinName: String?,
+        coinPrice: String?,
+        coinSymbol: String?,
+        coinImage: String?
+    ): DataResult<Boolean, String>
+
+    suspend fun removeFavorite(userId: String, coinId: String): DataResult<Boolean, String>
+
 }

@@ -1,10 +1,13 @@
 package com.alicimsamil.cointracker.feature.search.presentation
 
+import androidx.core.net.toUri
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.NavDeepLinkRequest
+import androidx.navigation.fragment.findNavController
 import com.alicimsamil.cointracker.core.common.extension.visible
 import com.alicimsamil.cointracker.core.common.extension.invisible
 import com.alicimsamil.cointracker.core.ui.base.BaseFragment
@@ -64,7 +67,12 @@ class SearchFragment : BaseFragment<FragmentSearchBinding, SearchViewModel>(Frag
     }
 
     private fun setRecyclerAdapter() {
-        pagingAdapter = SearchAdapter(SearchAdapter.CoinComparator)
+        pagingAdapter = SearchAdapter(SearchAdapter.CoinComparator){
+            val request = NavDeepLinkRequest.Builder
+                    .fromUri("android-app://com.alicimsamil.cointracker/detail_fragment/$it".toUri())
+                .build()
+            findNavController().navigate(request)
+        }
         binding.rvSearch.adapter = pagingAdapter
     }
 

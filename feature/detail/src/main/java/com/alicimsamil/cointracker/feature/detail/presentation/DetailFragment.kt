@@ -1,5 +1,6 @@
 package com.alicimsamil.cointracker.feature.detail.presentation
 
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -11,6 +12,8 @@ import com.alicimsamil.cointracker.core.common.extension.loadUrl
 import com.alicimsamil.cointracker.core.common.extension.setTextColor
 import com.alicimsamil.cointracker.core.ui.base.BaseFragment
 import com.alicimsamil.cointracker.core.ui.R
+import com.alicimsamil.cointracker.feature.detail.R.drawable.ic_favorite_filled
+import com.alicimsamil.cointracker.feature.detail.R.drawable.ic_favorite_empty
 import com.alicimsamil.cointracker.feature.detail.databinding.FragmentDetailBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
@@ -65,18 +68,45 @@ class DetailFragment :
                 state.marketChartData?.let {
                     lcvDetail.setChartData(it)
                 }
+                if (data.isFavorite == true) {
+                    ivFavorite.setImageDrawable(
+                        ContextCompat.getDrawable(
+                            requireContext(),
+                            ic_favorite_filled
+                        )
+                    )
+                } else {
+                    ivFavorite.setImageDrawable(
+                        ContextCompat.getDrawable(
+                            requireContext(),
+                            ic_favorite_empty
+                        )
+                    )
+                }
             }
         }
     }
 
     private fun initListeners() {
         binding.btnOk.setOnClickListener {
-            viewModel.onEvent(DetailEvents.RefreshCoin(binding.etTimeInterval.text.toString().toLongOrNull()))
+            viewModel.onEvent(
+                DetailEvents.RefreshCoin(
+                    binding.etTimeInterval.text.toString().toLongOrNull()
+                )
+            )
             it.isEnabled = false
         }
 
         binding.ivBack.setOnClickListener {
             findNavController().popBackStack()
+        }
+
+        binding.ivFavorite.setOnClickListener {
+            if (state.detailModel?.isFavorite == false) {
+                viewModel.onEvent(DetailEvents.AddFavorite)
+            } else {
+                viewModel.onEvent(DetailEvents.RemoveFavorite)
+            }
         }
     }
 

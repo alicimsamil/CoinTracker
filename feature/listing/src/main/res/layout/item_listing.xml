@@ -23,7 +23,7 @@
                 android:layout_height="@dimen/space_big"
                 android:layout_marginVertical="@dimen/space_medium_small"
                 android:layout_marginStart="@dimen/space_small_big"
-                android:src="@drawable/ic_btc"
+                tools:src="@drawable/ic_btc"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

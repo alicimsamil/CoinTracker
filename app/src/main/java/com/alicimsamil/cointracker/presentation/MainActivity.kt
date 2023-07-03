@@ -7,6 +7,12 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.findNavController
+import androidx.navigation.ui.setupWithNavController
+import com.alicimsamil.cointracker.R
+import com.alicimsamil.cointracker.feature.auth.R.id.signInFragment
+import com.alicimsamil.cointracker.core.common.extension.gone
+import com.alicimsamil.cointracker.core.common.extension.visible
 import com.alicimsamil.cointracker.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
@@ -28,6 +34,23 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         observeUiState()
+        initBottomNavigation()
+    }
+
+    private fun initBottomNavigation() {
+        val navController = this.findNavController(R.id.fragment_container)
+        binding.bottomNavigationView.setupWithNavController(navController)
+
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            when (destination.id) {
+                signInFragment -> {
+                    binding.bottomNavigationView.gone()
+                }
+                else -> {
+                    binding.bottomNavigationView.visible()
+                }
+            }
+        }
     }
 
     private fun observeUiState() {

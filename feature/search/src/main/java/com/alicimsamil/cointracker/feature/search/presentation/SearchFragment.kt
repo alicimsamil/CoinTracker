@@ -25,7 +25,6 @@ class SearchFragment : BaseFragment<FragmentSearchBinding, SearchViewModel>(Frag
         observeUiState()
         setRecyclerAdapter()
         initListeners()
-
     }
 
     private fun initListeners(){
@@ -41,7 +40,6 @@ class SearchFragment : BaseFragment<FragmentSearchBinding, SearchViewModel>(Frag
         binding.svCoin.setOnFocusChangeListener { v, hasFocus ->
             if (hasFocus){
                 binding.emptyLayout.root.invisible()
-
             } else {
                 binding.emptyLayout.root.visible()
             }
@@ -57,6 +55,8 @@ class SearchFragment : BaseFragment<FragmentSearchBinding, SearchViewModel>(Frag
                     handleLoading()
                     state.pagingData?.collectLatest { data ->
                         pagingAdapter.submitData(data)
+                    } ?: run{
+                        if (pagingAdapter.itemCount == 0) binding.emptyLayout.root.visible()
                     }
                 }
             }

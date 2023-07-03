@@ -30,8 +30,8 @@
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/ivCoinIcon"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="@dimen/space_big"
+                android:layout_height="@dimen/space_big"
                 android:layout_marginStart="@dimen/space_medium_small"
                 android:src="@drawable/ic_btc"
                 app:layout_constraintBottom_toBottomOf="@id/ivBack"
@@ -43,7 +43,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/space_small_big"
-                android:text="Bitcoin"
+                tools:text="Bitcoin"
                 android:textColor="@color/black"
                 android:textSize="@dimen/text_size_big_small"
                 android:textStyle="bold"
@@ -56,7 +56,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/space_small_small"
-                android:text="(BTC)"
+                tools:text="(BTC)"
                 android:textColor="@color/gray"
                 android:textSize="@dimen/text_size_medium_small"
                 android:textStyle="normal"
@@ -80,7 +80,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/space_medium_small"
                 android:layout_marginTop="@dimen/space_medium_small"
-                android:text="$30000.89"
+                tools:text="$30000.89"
                 android:textColor="@color/black"
                 android:textSize="@dimen/text_size_big"
                 android:textStyle="bold"
@@ -92,7 +92,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/space_small_big"
-                android:text="(9.77%)"
+                tools:text="(9.77%)"
                 android:textColor="@color/green"
                 android:textSize="@dimen/text_size_big_small"
                 android:textStyle="bold"
@@ -104,7 +104,7 @@
             <com.alicimsamil.cointracker.feature.detail.presentation.custom.LineChartView
                 android:id="@+id/lcvDetail"
                 android:layout_width="match_parent"
-                android:layout_height="270dp"
+                android:layout_height="@dimen/size_huge_huge"
                 android:layout_marginTop="@dimen/space_medium_medium"
                 app:layout_constraintTop_toBottomOf="@id/tvCoinPrice" />
 
@@ -186,7 +186,7 @@
             <EditText
                 android:id="@+id/etTimeInterval"
                 android:layout_width="0dp"
-                android:layout_height="48dp"
+                android:layout_height="@dimen/size_medium_big"
                 android:layout_marginVertical="@dimen/space_medium_small"
                 android:layout_marginStart="@dimen/space_medium"
                 android:background="@drawable/bg_interval_time"
@@ -206,7 +206,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/space_extra_small"
                 android:layout_marginEnd="@dimen/space_medium"
-                android:background="@drawable/bg_ok_btn"
+                android:background="@drawable/bg_blue"
                 android:text="@string/ok"
                 android:textColor="@color/white"
                 android:textSize="@dimen/text_size_medium_small"

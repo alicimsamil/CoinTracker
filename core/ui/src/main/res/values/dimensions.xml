@@ -23,7 +23,9 @@
     <dimen name="space_extra_small">5dp</dimen>
 
     //Size
-    <dimen name="size_huge_huge">200dp</dimen>
+    <dimen name="size_huge_huge">270dp</dimen>
     <dimen name="size_huge">120dp</dimen>
     <dimen name="size_big">50dp</dimen>
+    <dimen name="size_medium_big">50dp</dimen>
+
 </resources>

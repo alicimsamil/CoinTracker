@@ -37,4 +37,7 @@ object Configs {
     //:feature:search
     const val searchNamespace = "com.alicimsamil.cointracker.feature.search"
 
+    //:feature:detail
+    const val detailNamespace = "com.alicimsamil.cointracker.feature.detail"
+
 }

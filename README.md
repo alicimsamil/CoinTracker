@@ -37,13 +37,24 @@ The feature modules is divided into the following layers:
 - **JUnit4** - Unit testing framework
 
 ## Screenshots
-![Screenshot_20230703_132459](https://github.com/alicimsamil/CoinTracker/assets/81926983/259e8c30-3c6d-45a2-bfb9-fcea07332017)
-![Screenshot_20230703_132508](https://github.com/alicimsamil/CoinTracker/assets/81926983/2bb99c13-c0ba-4f32-a8b2-a7c54992b936)
 
-![Screenshot_20230703_073147](https://github.com/alicimsamil/CoinTracker/assets/81926983/557c83f8-7bb2-495e-9e60-317bccd6b525)
-![Screenshot_20230703_132432](https://github.com/alicimsamil/CoinTracker/assets/81926983/a891c4a1-6e9b-4e2c-9754-84291b2255dc)
+## Listing And Detail
 
-![Screenshot_20230703_073258](https://github.com/alicimsamil/CoinTracker/assets/81926983/d9c62eeb-089d-425d-b027-a25c23997d6b)
-![Screenshot_20230703_132453](https://github.com/alicimsamil/CoinTracker/assets/81926983/3423e6f9-adda-44c5-87d6-0e4aff1bd94b)
+<img src="https://github.com/alicimsamil/CoinTracker/assets/81926983/259e8c30-3c6d-45a2-bfb9-fcea07332017" width="250" />
+<img src="https://github.com/alicimsamil/CoinTracker/assets/81926983/2bb99c13-c0ba-4f32-a8b2-a7c54992b936" width="250" />
+
+## Favorites
+
+<img src="https://github.com/alicimsamil/CoinTracker/assets/81926983/a891c4a1-6e9b-4e2c-9754-84291b2255dc" width="250" />
+
+## Search
+
+<img src="https://github.com/alicimsamil/CoinTracker/assets/81926983/d9c62eeb-089d-425d-b027-a25c23997d6b" width="250" />
+<img src="https://github.com/alicimsamil/CoinTracker/assets/81926983/3423e6f9-adda-44c5-87d6-0e4aff1bd94b" width="250" />
+
+## SignIn
+
+<img src="https://github.com/alicimsamil/CoinTracker/assets/81926983/557c83f8-7bb2-495e-9e60-317bccd6b525" width="250" />
+
 
 

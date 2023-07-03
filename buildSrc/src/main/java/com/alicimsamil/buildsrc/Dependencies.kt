@@ -151,4 +151,10 @@ object Dependencies {
         add(pagingRuntimeLib)
     }
 
+    val detailModuleLibraries = arrayListOf<String>().apply {
+        add(coroutinesLib)
+        add(hiltLib)
+        add(retrofitLib)
+    }
+
 }

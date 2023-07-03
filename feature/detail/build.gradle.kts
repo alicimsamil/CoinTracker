@@ -1,5 +1,5 @@
 plugins {
-    id("com.android.application")
+    id("com.android.library")
     id("org.jetbrains.kotlin.android")
     id("androidx.navigation.safeargs.kotlin")
     id("com.google.dagger.hilt.android")
@@ -7,16 +7,15 @@ plugins {
 }
 
 android {
-    namespace = Configs.namespace
+    namespace = Configs.detailNamespace
     compileSdk = Configs.compileSdkVersion
 
     defaultConfig {
-        applicationId = Configs.applicationId
         minSdk = Configs.minSdkVersion
         targetSdk = Configs.targetSdkVersion
-        versionCode = Configs.versionCode
-        versionName = Configs.versionName
+
         testInstrumentationRunner = Configs.testInstrumentationRunner
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     flavorDimensions.add("version")
@@ -24,14 +23,10 @@ android {
     productFlavors {
         create("qa"){
             dimension = "version"
-            manifestPlaceholders["appName"] = Configs.testAppName
-            applicationId = Configs.qaApplicationId
         }
 
         create("prod"){
             dimension = "version"
-            manifestPlaceholders["appName"] = Configs.prodAppName
-            applicationId = Configs.applicationId
         }
     }
 
@@ -40,39 +35,24 @@ android {
             isMinifyEnabled = false
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
-        getByName("debug") {
-            isDebuggable = true
-        }
     }
-
     buildFeatures {
-        buildConfig = true
         viewBinding = true
     }
-
     compileOptions {
         sourceCompatibility = Configs.javaVersion
         targetCompatibility = Configs.javaVersion
     }
-
     kotlinOptions {
         jvmTarget = Configs.jvmTarget
     }
 }
 
 dependencies {
-    implementation(Dependencies.appModuleLibraries)
+    implementation(Dependencies.detailModuleLibraries)
     testImplementation(Dependencies.testLibraries)
     kapt(Dependencies.hiltCompilerKaptLib)
-    implementation(project(":core:ui"))
     implementation(project(":core:common"))
+    implementation(project(":core:ui"))
     implementation(project(":core:network"))
-    implementation(project(":core:database"))
-    implementation(project(":feature:listing"))
-    implementation(project(":feature:search"))
-    implementation(project(":feature:detail"))
-}
-
-kapt {
-    correctErrorTypes = true
 }

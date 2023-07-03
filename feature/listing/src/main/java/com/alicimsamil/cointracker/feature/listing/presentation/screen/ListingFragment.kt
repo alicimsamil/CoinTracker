@@ -1,9 +1,12 @@
 package com.alicimsamil.cointracker.feature.listing.presentation.screen
 
+import androidx.core.net.toUri
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.NavDeepLinkRequest
+import androidx.navigation.fragment.findNavController
 import com.alicimsamil.cointracker.core.common.extension.invisible
 import com.alicimsamil.cointracker.core.common.extension.visible
 import com.alicimsamil.cointracker.core.ui.base.BaseFragment
@@ -45,7 +48,12 @@ class ListingFragment : BaseFragment<FragmentListingBinding, ListingViewModel>(F
     }
 
     private fun setRecyclerAdapter() {
-        pagingAdapter = ListingAdapter(ListingAdapter.CoinComparator)
+        pagingAdapter = ListingAdapter(ListingAdapter.CoinComparator){
+            val request = NavDeepLinkRequest.Builder
+                .fromUri("android-app://com.alicimsamil.cointracker/detail_fragment/$it".toUri())
+                .build()
+            findNavController().navigate(request)
+        }
         binding.rvListing.adapter = pagingAdapter
     }
 }

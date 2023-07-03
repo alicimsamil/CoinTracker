@@ -5,8 +5,10 @@ import com.alicimsamil.cointracker.core.common.extension.EMPTY
 import com.alicimsamil.cointracker.core.ui.base.BaseViewModel
 import com.alicimsamil.cointracker.core.ui.base.UiEvent
 import com.alicimsamil.cointracker.core.ui.base.UiState
+import com.alicimsamil.cointracker.feature.detail.domain.usecase.AddFavoriteUseCase
 import com.alicimsamil.cointracker.feature.detail.domain.usecase.GetChartDataUseCase
 import com.alicimsamil.cointracker.feature.detail.domain.usecase.GetCoinDetailUseCase
+import com.alicimsamil.cointracker.feature.detail.domain.usecase.RemoveFavoriteUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -19,7 +21,9 @@ import javax.inject.Inject
 @HiltViewModel
 class DetailViewModel @Inject constructor(
     private val getCoinDetailUseCase: GetCoinDetailUseCase,
-    private val chartDataUseCase: GetChartDataUseCase
+    private val chartDataUseCase: GetChartDataUseCase,
+    private val addFavoriteUseCase: AddFavoriteUseCase,
+    private val removeFavoriteUseCase: RemoveFavoriteUseCase
 ) :
     BaseViewModel() {
 
@@ -27,6 +31,42 @@ class DetailViewModel @Inject constructor(
 
     var state = MutableStateFlow(DetailUiState())
         private set
+
+    private fun addFavorite(
+        coinId: String,
+        coinName: String?,
+        coinPrice: String?,
+        coinSymbol: String?,
+        coinImage: String?
+    ) {
+        viewModelScope.launch {
+            addFavoriteUseCase.invoke(coinId, coinName, coinPrice, coinSymbol, coinImage)
+                .onSuccess {
+                    state.value =
+                        state.value.copy(detailModel = state.value.detailModel?.copy(isFavorite = true))
+                }
+                .onFailure {
+                    state.value =
+                        state.value.copy(isLoading = false, error = it ?: String.EMPTY)
+                }
+        }
+    }
+
+    private fun removeFavorite(
+        coinId: String
+    ) {
+        viewModelScope.launch {
+            removeFavoriteUseCase.invoke(coinId)
+                .onSuccess {
+                    state.value =
+                        state.value.copy(detailModel = state.value.detailModel?.copy(isFavorite = false))
+                }
+                .onFailure {
+                    state.value =
+                        state.value.copy(isLoading = false, error = it ?: String.EMPTY)
+                }
+        }
+    }
 
     private fun getCoinDetails(id: String) {
         coinId = id
@@ -51,7 +91,8 @@ class DetailViewModel @Inject constructor(
                     .onSuccess {
                         state.value = state.value.copy(isLoading = false, marketChartData = it)
                     }.onFailure {
-                        state.value = state.value.copy(isLoading = false, error = it ?: String.EMPTY)
+                        state.value =
+                            state.value.copy(isLoading = false, error = it ?: String.EMPTY)
                     }
             }
         }
@@ -80,6 +121,24 @@ class DetailViewModel @Inject constructor(
             is DetailEvents.RefreshCoin -> {
                 refreshCoinPrice(event.interval)
             }
+
+            is DetailEvents.AddFavorite -> {
+                coinId?.let {
+                    addFavorite(
+                        it,
+                        state.value.detailModel?.name,
+                        state.value.detailModel?.price,
+                        state.value.detailModel?.symbol,
+                        state.value.detailModel?.icon
+                    )
+                }
+            }
+
+            is DetailEvents.RemoveFavorite -> {
+                coinId?.let {
+                    removeFavorite(it)
+                }
+            }
         }
     }
 }
@@ -87,6 +146,8 @@ class DetailViewModel @Inject constructor(
 sealed class DetailEvents : UiEvent {
     data class GetCoinDetails(val id: String) : DetailEvents()
     data class RefreshCoin(val interval: Long?) : DetailEvents()
+    object AddFavorite : DetailEvents()
+    object RemoveFavorite : DetailEvents()
 }
 
 data class DetailUiState(

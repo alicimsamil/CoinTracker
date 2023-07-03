@@ -6,9 +6,10 @@ import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.alicimsamil.cointracker.core.common.extension.EMPTY
 import com.alicimsamil.cointracker.feature.search.databinding.ItemSearchListingBinding
 
-class SearchAdapter(diffCallback: CoinComparator) :
+class SearchAdapter(diffCallback: CoinComparator, val click: (String) -> Unit) :
     PagingDataAdapter<SearchModel, SearchAdapter.ListingViewHolder>(diffCallback) {
 
     var context: Context? = null
@@ -48,6 +49,9 @@ class SearchAdapter(diffCallback: CoinComparator) :
                 listingModel?.let { data ->
                     tvCoinName.text = data.name
                     tvCoinSymbol.text = data.symbol
+                    root.setOnClickListener {
+                        click(data.coinId ?: String.EMPTY)
+                    }
                 }
             }
         }

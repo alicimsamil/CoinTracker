@@ -4,57 +4,73 @@
 object Dependencies {
 
     //app
-    private const val materialLib= "com.google.android.material:material:${Versions.materialLibVersion}"
+    private const val materialLib =
+        "com.google.android.material:material:${Versions.materialLibVersion}"
     private const val coreKtxLib = "androidx.core:core-ktx:${Versions.coreLibVersion}"
     private const val appCompatLib = "androidx.appcompat:appcompat:${Versions.appcompatLibVersion}"
-    private const val constraintLayoutLib = "androidx.constraintlayout:constraintlayout:${Versions.constraintLayoutVersion}"
-    private const val viewModelLib = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.viewModelVersion}"
+    private const val constraintLayoutLib =
+        "androidx.constraintlayout:constraintlayout:${Versions.constraintLayoutVersion}"
+    private const val viewModelLib =
+        "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.viewModelVersion}"
     private const val activityLib = "androidx.activity:activity-ktx:${Versions.activityVersion}"
 
     //Kotlin
-    private const val serializationLib = "org.jetbrains.kotlinx:kotlinx-serialization-json:${Versions.serializationVersion}"
+    private const val serializationLib =
+        "org.jetbrains.kotlinx:kotlinx-serialization-json:${Versions.serializationVersion}"
 
     //Navigation
-    private const val navigationFragmentLib = "androidx.navigation:navigation-fragment-ktx:${Versions.navVersion}"
-    private const val navigationUiLib = "androidx.navigation:navigation-ui-ktx:${Versions.navVersion}"
+    private const val navigationFragmentLib =
+        "androidx.navigation:navigation-fragment-ktx:${Versions.navVersion}"
+    private const val navigationUiLib =
+        "androidx.navigation:navigation-ui-ktx:${Versions.navVersion}"
 
     //Hilt
     private const val hiltLib = "com.google.dagger:hilt-android:${Versions.hiltLibraryVersion}"
-    const val hiltCompilerKaptLib = "com.google.dagger:hilt-android-compiler:${Versions.hiltLibraryVersion}"
-    const val hiltTestingLib = "com.google.dagger:hilt-android-testing:${Versions.hiltLibraryVersion}"
+    const val hiltCompilerKaptLib =
+        "com.google.dagger:hilt-android-compiler:${Versions.hiltLibraryVersion}"
+    const val hiltTestingLib =
+        "com.google.dagger:hilt-android-testing:${Versions.hiltLibraryVersion}"
 
     //Coroutines
-    const val coroutinesLib = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutinesVersion}"
-    const val coroutinesTestLib = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutinesVersion}"
+    const val coroutinesLib =
+        "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutinesVersion}"
+    const val coroutinesTestLib =
+        "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutinesVersion}"
 
     //Room
-    private const val roomLib= "androidx.room:room-runtime:${Versions.roomVersion}"
-    private const val roomKtxLib= "androidx.room:room-ktx:${Versions.roomVersion}"
-    const val roomCompilerLib= "androidx.room:room-compiler:${Versions.roomVersion}"
+    private const val roomLib = "androidx.room:room-runtime:${Versions.roomVersion}"
+    private const val roomKtxLib = "androidx.room:room-ktx:${Versions.roomVersion}"
+    const val roomCompilerLib = "androidx.room:room-compiler:${Versions.roomVersion}"
     private const val roomPagingLib = "androidx.room:room-paging:${Versions.roomVersion}"
 
     //Paging
     private const val pagingLib = "androidx.paging:paging-common-ktx:${Versions.pagingVersion}"
-    private const val pagingRuntimeLib = "androidx.paging:paging-runtime-ktx:${Versions.pagingVersion}"
+    private const val pagingRuntimeLib =
+        "androidx.paging:paging-runtime-ktx:${Versions.pagingVersion}"
 
     //Retrofit
     private const val retrofitLib = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
-    private const val retrofitConverterLib = "com.squareup.retrofit2:converter-gson:${Versions.retrofit}"
+    private const val retrofitConverterLib =
+        "com.squareup.retrofit2:converter-gson:${Versions.retrofit}"
 
     //OkHttp
     private const val okHttpLib = "com.squareup.okhttp3:okhttp:${Versions.okHttpVersion}"
-    private const val okHttpInterceptorLib = "com.squareup.okhttp3:logging-interceptor:${Versions.okHttpVersion}"
+    private const val okHttpInterceptorLib =
+        "com.squareup.okhttp3:logging-interceptor:${Versions.okHttpVersion}"
 
     //Chucker
     const val chuckerLib = "com.github.chuckerteam.chucker:library:${Versions.chuckerVersion}"
-    const val chuckerReleaseLib = "com.github.chuckerteam.chucker:library-no-op:${Versions.chuckerVersion}"
+    const val chuckerReleaseLib =
+        "com.github.chuckerteam.chucker:library-no-op:${Versions.chuckerVersion}"
 
     //Splash Screen
-    private const val splashScreenLib = "androidx.core:core-splashscreen:${Versions.splashScreenVersion}"
+    private const val splashScreenLib =
+        "androidx.core:core-splashscreen:${Versions.splashScreenVersion}"
 
     //Glide
-    private const val glideLib ="com.github.bumptech.glide:glide:${Versions.glideVersion}"
-    private const val swipeToRefreshLib =  "androidx.swiperefreshlayout:swiperefreshlayout:${Versions.swipeToRefreshVersion}"
+    private const val glideLib = "com.github.bumptech.glide:glide:${Versions.glideVersion}"
+    private const val swipeToRefreshLib =
+        "androidx.swiperefreshlayout:swiperefreshlayout:${Versions.swipeToRefreshVersion}"
 
     //Firebase
     const val firebaseBom = "com.google.firebase:firebase-bom:${Versions.firebaseVersion}"
@@ -65,7 +81,8 @@ object Dependencies {
     //test
     const val testJUnitLib = "junit:junit:${Versions.testJunitVersion}"
     private const val testExtJUnitLib = "androidx.test.ext:junit:${Versions.testExtJunitVersion}"
-    private const val testEspressoCoreLib = "androidx.test.espresso:espresso-core:${Versions.testEspressoVersion}"
+    private const val testEspressoCoreLib =
+        "androidx.test.espresso:espresso-core:${Versions.testEspressoVersion}"
 
     val testLibraries = arrayListOf<String>().apply {
         add(testJUnitLib)
@@ -155,6 +172,11 @@ object Dependencies {
         add(coroutinesLib)
         add(hiltLib)
         add(retrofitLib)
+    }
+
+    val favoritesModuleLibraries = arrayListOf<String>().apply {
+        add(coroutinesLib)
+        add(hiltLib)
     }
 
 }

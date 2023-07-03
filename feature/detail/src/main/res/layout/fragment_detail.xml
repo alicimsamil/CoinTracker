@@ -33,7 +33,7 @@
                 android:layout_width="@dimen/space_big"
                 android:layout_height="@dimen/space_big"
                 android:layout_marginStart="@dimen/space_medium_small"
-                android:src="@drawable/ic_btc"
+                tools:src="@drawable/ic_btc"
                 app:layout_constraintBottom_toBottomOf="@id/ivBack"
                 app:layout_constraintStart_toEndOf="@id/ivBack"
                 app:layout_constraintTop_toTopOf="@id/ivBack" />

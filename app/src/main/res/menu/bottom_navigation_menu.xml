@@ -12,4 +12,10 @@
         android:enabled="true"
         android:icon="@drawable/ic_search"
         android:title="@string/search"/>
+
+    <item
+        android:id="@+id/favorites_nav_graph"
+        android:enabled="true"
+        android:icon="@drawable/ic_favorites"
+        android:title="@string/favorites"/>
 </menu>

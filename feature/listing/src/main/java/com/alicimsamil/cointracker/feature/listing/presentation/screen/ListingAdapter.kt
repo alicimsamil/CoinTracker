@@ -6,13 +6,14 @@ import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.alicimsamil.cointracker.core.common.extension.EMPTY
 import com.alicimsamil.cointracker.core.common.extension.loadUrl
 import com.alicimsamil.cointracker.core.common.extension.setTextColor
 import com.alicimsamil.cointracker.core.ui.R
 import com.alicimsamil.cointracker.feature.listing.databinding.ItemListingBinding
 import com.alicimsamil.cointracker.feature.listing.presentation.custom.LineColor
 
-class ListingAdapter(diffCallback: CoinComparator) :
+class ListingAdapter(diffCallback: CoinComparator, val click: (String) -> Unit) :
     PagingDataAdapter<ListingModel, ListingAdapter.ListingViewHolder>(diffCallback) {
 
     var context: Context? = null
@@ -72,6 +73,9 @@ class ListingAdapter(diffCallback: CoinComparator) :
                     }
                     data.sparkline?.let {
                         lcvListing.setChartData(it)
+                    }
+                    binding.root.setOnClickListener {
+                        click(data.id ?: String.EMPTY)
                     }
                 }
             }

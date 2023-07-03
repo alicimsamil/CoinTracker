@@ -30,6 +30,7 @@ The feature modules is divided into the following layers:
 - **Glide** - Loading Images
 - **Room** - Database Storage
 - **Retrofit** - Network requests
+- **Firebase** - Remote Database, Authentication
 - **OkHttp-Chucker** - Manage and monitor HTTP requests
 
 

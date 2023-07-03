@@ -40,21 +40,20 @@ The feature modules is divided into the following layers:
 
 ## Listing And Detail
 
-<img src="https://github.com/alicimsamil/CoinTracker/assets/81926983/259e8c30-3c6d-45a2-bfb9-fcea07332017" width="250" />
-<img src="https://github.com/alicimsamil/CoinTracker/assets/81926983/2bb99c13-c0ba-4f32-a8b2-a7c54992b936" width="250" />
+<img src="https://github.com/alicimsamil/CoinTracker/assets/81926983/d7518800-4f12-40fd-9125-141bfad7b650" width="250" />
+<img src="https://github.com/alicimsamil/CoinTracker/assets/81926983/c32bc281-9ad1-4d43-adb4-ef0315508232" width="250" />
 
 ## Favorites
 
-<img src="https://github.com/alicimsamil/CoinTracker/assets/81926983/a891c4a1-6e9b-4e2c-9754-84291b2255dc" width="250" />
+<img src="https://github.com/alicimsamil/CoinTracker/assets/81926983/9c0c3de6-4e88-4d50-b830-971c5a2e3cab" width="250" />
 
 ## Search
 
-<img src="https://github.com/alicimsamil/CoinTracker/assets/81926983/d9c62eeb-089d-425d-b027-a25c23997d6b" width="250" />
-<img src="https://github.com/alicimsamil/CoinTracker/assets/81926983/3423e6f9-adda-44c5-87d6-0e4aff1bd94b" width="250" />
+<img src="https://github.com/alicimsamil/CoinTracker/assets/81926983/e43e1a03-5fd9-4d48-8dfb-995a3f9cca60" width="250" />
+<img src="https://github.com/alicimsamil/CoinTracker/assets/81926983/7c145034-e0cf-4328-bab4-9dbfd7ae9be6" width="250" />
 
 ## SignIn
 
-<img src="https://github.com/alicimsamil/CoinTracker/assets/81926983/557c83f8-7bb2-495e-9e60-317bccd6b525" width="250" />
-
+<img src="https://github.com/alicimsamil/CoinTracker/assets/81926983/2aac6e87-2712-41f6-9f44-7115e1fa1a0c" width="250" />
 
 

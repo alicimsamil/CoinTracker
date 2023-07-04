@@ -10,6 +10,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.alicimsamil.cointracker.R
+import com.alicimsamil.cointracker.feature.detail.R.id.detailFragment
 import com.alicimsamil.cointracker.feature.auth.R.id.signInFragment
 import com.alicimsamil.cointracker.core.common.extension.gone
 import com.alicimsamil.cointracker.core.common.extension.visible
@@ -44,6 +45,9 @@ class MainActivity : AppCompatActivity() {
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
                 signInFragment -> {
+                    binding.bottomNavigationView.gone()
+                }
+                detailFragment -> {
                     binding.bottomNavigationView.gone()
                 }
                 else -> {
